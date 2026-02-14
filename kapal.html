@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resto • TravelGo</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-gradient"></div>
+<header>
+  <a href="index.html" class="home-btn">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 9L12 2L21 9V20C21 21.1 20.1 22 19 22H5C3.9 22 3 21.1 3 20V9Z" stroke="#80d0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M9 22V12H15V22" stroke="#80d0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+  <h1>Resto</h1>
+</header>
+<div class="form-container">
+<form id="searchForm">
+<div class="input-wrap"><input type="text" id="lokasi" placeholder=" " required><label>Lokasi</label></div>
+<div class="input-wrap"><input type="date" id="tanggal" required><label>Tanggal</label></div>
+<div class="input-wrap"><input type="time" id="jam" required><label>Jam</label></div>
+<div class="input-wrap"><input type="number" id="orang" min="1" value="2" required><label>Orang</label></div>
+<div class="input-wrap">
+<select id="tipe" required>
+<option value="" disabled selected></option>
+<option value="fine dining">Fine Dining</option>
+<option value="casual">Casual</option>
+<option value="halal">Halal</option>
+<option value="vegan">Vegan/Vegetarian</option>
+<option value="seafood">Seafood</option>
+</select>
+<label>Tipe Resto</label>
+</div>
+<div class="input-wrap">
+<select id="preferensi" required>
+<option value="" disabled selected></option>
+<option value="indonesia">Indonesia</option>
+<option value="jepang">Jepang</option>
+<option value="italian">Italian</option>
+<option value="steak">Steakhouse</option>
+<option value="fusion">Fusion/Modern</option>
+</select>
+<label>Preferensi Makanan</label>
+</div>
+<a href="#" id="waBtn" class="wa-btn">Pesan via WA</a>
+</form>
+</div>
+<div id="results" class="results-grid"></div>
+
+<script>
+document.getElementById('waBtn').addEventListener('click', function(e) {
+  e.preventDefault()
+  
+  let lokasi = document.getElementById('lokasi').value.trim() || 'Bandung'
+  let tanggal = document.getElementById('tanggal').value || 'Hari ini'
+  let jam = document.getElementById('jam').value || '19:00'
+  let orang = document.getElementById('orang').value || '2'
+  let tipe = document.getElementById('tipe').value || '-'
+  let preferensi = document.getElementById('preferensi').value || '-'
+  
+  let pesan = `*Reservasi Resto*\n\n`
+  pesan += `Lokasi: ${lokasi}\n`
+  pesan += `Tanggal: ${tanggal}\n`
+  pesan += `Jam: ${jam}\n`
+  pesan += `Orang: ${orang}\n`
+  pesan += `Tipe Resto: ${tipe}\n`
+  pesan += `Preferensi Makanan: ${preferensi}\n\n`
+  pesan += `Mau reservasi nih admin, langsung proses ya! 🍽️🔥`
+  
+  const nomor = '628814515648' // ganti nomor WA kamu
+  const link = 'https://wa.me/' + nomor + '?text=' + encodeURIComponent(pesan)
+  
+  window.open(link, '_blank')
+})
+</script>
+</body>
+</html>

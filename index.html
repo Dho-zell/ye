@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a001f">
+  <title>GGS Travel • Mulai Petualanganmu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {
+      font-family:'Inter',sans-serif;
+      background:#000;
+      color:#fff;
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+    .bg-gradient {
+      position:fixed;
+      inset:0;
+      background:linear-gradient(135deg,#0a001f 0%,#001f2f 100%);
+      z-index:-2;
+    }
+    .bg-gradient::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at 70% 30%,rgba(0,242,255,0.12),transparent 70%);
+      z-index:-1;
+    }
+    header.hero {
+      text-align:center;
+      padding:4rem 1rem 2.5rem;
+    }
+    .hero h1 {
+      font-size:clamp(2.8rem, 10vw, 3.6rem);
+      font-weight:800;
+      background:linear-gradient(90deg,#ffd700,#00f2ff,#ffd700);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      background-size:300% auto;
+      animation:flow 10s linear infinite;
+    }
+    @keyframes flow {
+      0%{background-position:0% 50%;}
+      100%{background-position:300% 50%;}
+    }
+    .hero p {
+      font-size:1.1rem;
+      color:#ccc;
+      margin:1rem 0 1.8rem;
+      max-width:360px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .cta-btn {
+      display:inline-block;
+      padding:1rem 2.2rem;
+      background:linear-gradient(90deg,#ffd700,#00f2ff);
+      color:#000;
+      font-size:1.1rem;
+      font-weight:700;
+      border-radius:999px;
+      text-decoration:none;
+      transition:all 0.3s ease;
+    }
+    .cta-btn:hover {
+      transform:scale(1.06);
+      box-shadow:0 0 35px rgba(0,242,255,0.45);
+    }
+    .features {
+      padding:1.5rem 1rem;
+      text-align:center;
+    }
+    .features h2 {
+      font-size:1.8rem;
+      margin-bottom:1.8rem;
+      color:#00f2ff;
+    }
+    .grid {
+      display:grid;
+      grid-template-columns:1fr;
+      gap:1.4rem;
+      max-width:420px;
+      margin:0 auto;
+      padding:0 0.5rem;
+    }
+    .card {
+      background:rgba(255,255,255,0.04);
+      backdrop-filter:blur(20px);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:20px;
+      padding:1.6rem;
+      transition:all 0.3s ease;
+      text-decoration:none;
+      color:inherit;
+      display:block;
+      cursor:pointer;
+    }
+    .card:hover {
+      transform:translateY(-6px);
+      box-shadow:0 12px 35px rgba(0,242,255,0.28);
+      border-color:rgba(0,242,255,0.35);
+    }
+    .card h3 {
+      color:#ffd700;
+      margin-bottom:0.7rem;
+      font-size:1.35rem;
+    }
+    .card p {
+      color:#ccc;
+      font-size:0.95rem;
+      line-height:1.5;
+    }
+    footer {
+      text-align:center;
+      padding:2rem 1rem;
+      color:#777;
+      font-size:0.9rem;
+      margin-top:auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <br>
+<center>
+  <header class="hero">
+    <h1>GGS Travel</h1>
+    <p>Pilih layanan sesuka kamu</p>
+  </header>
+</center>
+  <section class="features">
+    <h2>Pilihan Terbaik?</h2>
+    <div class="grid">
+      <a href="bus.html" class="card">
+        <h3>Villa/Hotel</h3>
+        <p>Tempat Penginapan Terbaik Sedunia.</p>
+      </a>
+      <a href="kapal.html" class="card">
+        <h3>Resto</h3>
+        <p>Restoran Terenak Se Indonesia.</p>
+      </a>
+      <a href="pesawat.html" class="card">
+        <h3>Pesawat</h3>
+        <p>Terbang domestik & internasional. Promo maskapai top.</p>
+      </a>
+      <a href="kereta.html" class="card">
+        <h3>Kereta</h3>
+        <p>Eksekutif sampai ekonomi. Jadwal KAI real-time.</p>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>TravelGo © 2026. Gas terus bro!</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({behavior: 'smooth'});
+      });
+    });
+  </script>
+</body>
+</html>
